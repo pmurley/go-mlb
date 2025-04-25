@@ -5,9 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 	oapigen "github.com/pmurley/go-mlb/pkg/gen"
+	"github.com/pmurley/go-mlb/pkg/model"
 )
 
-func (c *Client) GetSchedule(ctx context.Context, params *oapigen.ScheduleParams) (*ScheduleResponse, error) {
+func (c *Client) GetSchedule(ctx context.Context, params *oapigen.ScheduleParams) (*model.ScheduleResponse, error) {
 	resp, err := c.apiClient.ScheduleWithResponse(ctx, params)
 	if err != nil {
 		return nil, err
@@ -16,7 +17,7 @@ func (c *Client) GetSchedule(ctx context.Context, params *oapigen.ScheduleParams
 		return nil, fmt.Errorf("unexpected status code: %d %s", resp.StatusCode(), resp.Status())
 	}
 
-	var schedule ScheduleResponse
+	var schedule model.ScheduleResponse
 	err = json.Unmarshal(resp.Body, &schedule)
 	if err != nil {
 		return nil, err

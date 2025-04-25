@@ -1,4 +1,4 @@
-package client
+package model
 
 // TeamsResponse is the response to the /teams endpoint
 type TeamsResponse struct {

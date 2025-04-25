@@ -1,4 +1,11 @@
-package client
+package model
+
+type LeagueId int32
+
+const (
+	AmericanLeague LeagueId = 103
+	NationalLeague LeagueId = 104
+)
 
 // LeaguesResponse represents the full API response for leagues endpoint
 type LeaguesResponse struct {
@@ -56,3 +63,67 @@ type SeasonDateInfo struct {
 	QualifierPlateAppearances float64 `json:"qualifierPlateAppearances,omitempty"`
 	QualifierOutsPitched      float64 `json:"qualifierOutsPitched,omitempty"`
 }
+
+// AllStarWriteInsResponse represents the response for All Star write-in candidates
+type AllStarWriteInsResponse struct {
+	Copyright string                   `json:"copyright"`
+	People    []PotentialAllStarPlayer `json:"people"`
+}
+
+// PotentialAllStarPlayer represents a player eligible for All Star write-in
+type PotentialAllStarPlayer struct {
+	ID                 int       `json:"id"`
+	FullName           string    `json:"fullName"`
+	Link               string    `json:"link"`
+	FirstName          string    `json:"firstName"`
+	LastName           string    `json:"lastName"`
+	PrimaryNumber      string    `json:"primaryNumber,omitempty"`
+	BirthDate          string    `json:"birthDate"`
+	CurrentAge         int       `json:"currentAge"`
+	BirthCity          string    `json:"birthCity"`
+	BirthStateProvince string    `json:"birthStateProvince,omitempty"`
+	BirthCountry       string    `json:"birthCountry"`
+	Height             string    `json:"height"`
+	Weight             int       `json:"weight"`
+	Active             bool      `json:"active"`
+	UseName            string    `json:"useName"`
+	UseLastName        string    `json:"useLastName"`
+	MiddleName         string    `json:"middleName,omitempty"`
+	BoxscoreName       string    `json:"boxscoreName"`
+	NickName           string    `json:"nickName,omitempty"`
+	Gender             string    `json:"gender"`
+	NameMatrilineal    string    `json:"nameMatrilineal,omitempty"`
+	IsPlayer           bool      `json:"isPlayer"`
+	IsVerified         bool      `json:"isVerified"`
+	DraftYear          int       `json:"draftYear,omitempty"`
+	Pronunciation      string    `json:"pronunciation,omitempty"`
+	MlbDebutDate       string    `json:"mlbDebutDate,omitempty"`
+	BatSide            BatSide   `json:"batSide"`
+	PitchHand          PitchHand `json:"pitchHand"`
+	NameFirstLast      string    `json:"nameFirstLast"`
+	NameSlug           string    `json:"nameSlug"`
+	FirstLastName      string    `json:"firstLastName"`
+	LastFirstName      string    `json:"lastFirstName"`
+	LastInitName       string    `json:"lastInitName"`
+	InitLastName       string    `json:"initLastName"`
+	FullFMLName        string    `json:"fullFMLName"`
+	FullLFMName        string    `json:"fullLFMName"`
+	StrikeZoneTop      float64   `json:"strikeZoneTop"`
+	StrikeZoneBottom   float64   `json:"strikeZoneBottom"`
+}
+
+// BatSide represents which side the player bats from
+type BatSide struct {
+	Code        string `json:"code"`
+	Description string `json:"description"`
+}
+
+// PitchHand represents which hand the player pitches with
+type PitchHand struct {
+	Code        string `json:"code"`
+	Description string `json:"description"`
+}
+
+// It's just a list of players with attributes -- No vote data the responses at all at time of writing
+type AllStarFinalVoteResponse AllStarWriteInsResponse
+type AllStarBallotResponse AllStarWriteInsResponse
