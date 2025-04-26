@@ -49,8 +49,8 @@ func main() {
 	}
 
 	for _, league := range leagues {
-		fmt.Printf("%s: Season runs %s - %s\n",
-			league.Name, league.SeasonDateInfo.SeasonStartDate, league.SeasonDateInfo.SeasonEndDate)
+		fmt.Printf("%d %s: Season runs %s - %s\n",
+			league.ID, league.Name, league.SeasonDateInfo.SeasonStartDate, league.SeasonDateInfo.SeasonEndDate)
 	}
 
 	// GetAllStarWriteIns

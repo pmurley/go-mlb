@@ -1,10 +1,21 @@
 package model
 
-type LeagueId int32
-
 const (
-	AmericanLeague LeagueId = 103
-	NationalLeague LeagueId = 104
+	AmericanLeague         int32 = 103
+	NationalLeague         int32 = 104
+	CactusLeague           int32 = 114
+	GrapefruitLeague       int32 = 115
+	NegroNationalLeagueTwo int32 = 431
+	NegroNationalLeagueOne int32 = 430
+	NegroEastWestLeague    int32 = 429
+	NegroAmericanLeague    int32 = 428
+	EasternColoredLeague   int32 = 427
+	AmericanNegroLeague    int32 = 426
+	NegroSouthernLeague    int32 = 432
+	AmericanAssociation    int32 = 100
+	PlayersLeague          int32 = 105
+	UnionAssociation       int32 = 101
+	FederalLeague          int32 = 106
 )
 
 // LeaguesResponse represents the full API response for leagues endpoint
